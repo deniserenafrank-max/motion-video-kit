@@ -26,7 +26,7 @@ Sell a roof inspection: a careful inspection turns small details into clear next
 2. **30s and 40s cuts** added a storyboard, custom UI and a Three.js roof slab. They were rejected: the generic roof mesh and an evening house were overused, and it "looks like a basic video".
 3. **36s cut** fixed spacing and card-size complaints but kept small 3D objects in large empty fields. The critic measured ~10s of frozen time.
 4. **v8 (31s → 28.6s)** replaced the slab with the maquette house (layers + photo-pin flight), added 3D option patches and a new bright opener, and cut every hold. Five critic rounds brought frozen time down to ~0.7s.
-5. **Audio:** the energetic score was rejected ("doesn't match; chill and mellow; not too loud"). The generated SFX were rejected ("not professional, jarring"). Final: warm acoustic-leaning score options, sparse softened library SFX, −18 LUFS.
+5. **Audio (eight rounds):** energetic score rejected ("doesn't match; chill and mellow") → AI effects rejected ("not professional, jarring") → sparse library effects inaudible ("I can't hear anything") → launch-style dense layer rejected ("too loud, annoying") → rumbly repeated whooshes rejected ("whoosh, whoosh, whoosh") → one whoosh identified as the culprit by a music-only A/B → roof split too quiet → final: Lofi score 30% quieter, one soft rumble-free whoosh per transition, clean UI clicks/pops/taps, a key-tuned pluck on the 3D roof split, per-event in-band levels, −19 LUFS.
 
 ## Component critic findings that mattered
 

@@ -58,7 +58,7 @@ One root timeline; each scene is a sub-composition; Three.js scenes are rendered
 Render the whole film. Run `scripts/frozen-time.sh` and `scripts/loudness.sh`. Send to a fresh critic with `references/critic-prompts.md` (full-film prompt). Fix the highest-impact items, re-render, and send to a *new* critic that verifies the previous list item by item. Stop at the quality bar or when gains become cosmetic (usually 3–5 rounds).
 
 ### 8. Audio last, but not an afterthought
-Follow `references/audio.md`: music genre matched to the buyer's customer, a few clean library effects only on the biggest moments, levelled to ~+4 dB within their own frequency band, and a master around −16 LUFS for calm pieces (−14 for punchy ones). Always deliver a music-only fallback. Offer 2–3 music options cut to the same picture at identical loudness.
+Follow `references/audio.md`: music matched to the buyer's customer and kept well under the effects (lo-fi or warm acoustic for home services); one soft, rumble-free whoosh per real transition; clean UI sounds only on real actions; per-event levels solved in each effect's band (`scripts/solve-sfx-gains.py`); candidates screened with `scripts/sfx-candidates.py`. Always deliver a music-only fallback, and isolate complaints with it.
 
 ### 9. Deliver
 Master MP4 (1080p60 for motion work), poster frame, contact sheet, editable source, generation ledger, and a Gauntlet ledger (what each critic found → what changed → measured before/after). State limits honestly: what was measured versus listened to, and sampled versus exhaustive review.
