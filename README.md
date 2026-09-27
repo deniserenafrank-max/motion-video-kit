@@ -1,4 +1,4 @@
-# AI Video Gauntlet: business motion film skill
+# Motion Video Kit
 
 A Claude Code skill (also usable as plain context for any LLM) for making **premium, launch-style commercials for real businesses** with AI-generated footage, code-built motion (HTML/GSAP), selective Three.js, and an independent-critic quality loop.
 
@@ -15,10 +15,10 @@ It packages what was learned from studying 28 professional SaaS launch films and
 ## Install (Claude Code)
 
 ```sh
-git clone https://github.com/echris6/ai-video-gauntlet.git
-cp -r ai-video-gauntlet/business-motion-film ~/.claude/skills/        # all projects
+git clone https://github.com/echris6/motion-video-kit.git
+cp -r motion-video-kit/business-motion-film ~/.claude/skills/        # all projects
 # or, per project:
-cp -r ai-video-gauntlet/business-motion-film <your-project>/.claude/skills/
+cp -r motion-video-kit/business-motion-film <your-project>/.claude/skills/
 ```
 
 Then ask for a business commercial, sample reel or explainer, or for a review of one, and the skill loads. It works best with [HyperFrames](https://hyperframes.heygen.com) for rendering, but the principles, prompts and checks are renderer-agnostic.
