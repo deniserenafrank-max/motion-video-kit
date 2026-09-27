@@ -44,7 +44,7 @@ business-motion-film/
     business-offers.md          verticals, evidence, price anchors, pilot offer
     three-js-patterns.md        render contract, patterns, realism checklist
     case-study-alder.md         a full worked example
-  scripts/                      frozen-time, loudness, contact-sheet, soften-sfx
+  scripts/                      frozen-time, loudness, contact-sheet, soften-sfx, make-sweeps
   templates/                    component-lab.html, projected-overlays.js
 ```
 

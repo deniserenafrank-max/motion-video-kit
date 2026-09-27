@@ -13,19 +13,24 @@ Audio made otherwise strong visuals feel amateur more than anything else. These 
 
 ## Sound effects
 
-- **AI-generated sound effects were rejected** as "not professional… jarring to the ear". Use a small library of standard, clean effects (soft whoosh, soft click, gentle pop, soft chime), e.g. the HyperFrames bundled SFX library.
-- **Soften every effect:** high-pass (~140–200 Hz), low-pass (~5–8 kHz), 10ms fade-in, and a short fade-out so nothing clicks or hisses.
-- **Be sparse.** Effects only on meaningful moments:
-  - a soft whoosh on major scene changes only, not every wipe;
-  - a gentle pop when a pin or label appears;
-  - a soft click only where a cursor actually clicks;
-  - one quiet chime on the confirmation.
-- **Remove texture effects** (material scrapes, flyover air, card shuffles) unless they are unmistakably clean.
-- **Level:** each effect's momentary loudness should land at or below the music's typical level at that moment. If an effect creates a +3–4 dB spike, lower it.
-- **Logo:** if the music resolves on the logo, don't add a separate chord or sting (key clashes). For an energetic cut, a hit synced to the lockup frame plus a mix dip right before it works.
+**What the launch films actually do** (audio analysis of 14 motion-first reference films: loudness, transient detection against the music bed, cut alignment, spectrograms of studied transitions):
+- The music carries most of the sound design: punchy rhythmic beds, with cuts landing on beats.
+- The music **drops out for a moment right before a big moment**, then the moment hits.
+- **Pitched sweeps ("zips")** on transitions: clean rising/falling tones (AgentArcade, Bolt), not just noisy whooshes.
+- A **deep sub hit exactly on a hard cut** (Work Louder).
+- **Crisp product/UI sounds in the 2–10 kHz band**, where the music leaves space (Work Louder's key clicks), clearly audible.
+- Effects peak roughly **+5 to +10 dB above the music bed** at their moment.
+
+**Rules that follow:**
+- A whoosh on every scene change; a sub hit on the 1–2 biggest landings (headline slam, logo), with a 0.2–0.3s music dip just before the logo hit.
+- Rising sweeps on reveals (layers lifting, cards rising); falling sweeps on objects landing or handing off.
+- Ticks for labels, highlights and focus rings; pops for pins and badges; crisp clicks only on real cursor clicks; one chime on confirmation.
+- **Level:** each effect peaks about +4 to +9 dB above the music at its moment; the logo hit is the loudest. Effects set "at or below the music" are inaudible. A client said "there are basically no sound effects, I can't hear anything".
+- **Source:** a clean library (e.g. the HyperFrames bundled SFX) plus clean synthesized sweeps and ticks (`scripts/make-sweeps.sh`). AI-generated effects were rejected as "not professional… jarring".
+- Keep library sounds bright (light high-pass only). Heavy low-pass makes them dull and easy to lose under the music.
 
 ## Mix & master
 
 - Mix and render as part of the composition (per-track volume, automation for dips under dense reading moments).
-- Target −16 to −18 LUFS integrated for web/social, true peak ≤ −1 dBFS. Master with a simple gain offset and AAC 256k, copying the video stream untouched.
+- **Master to about −14 LUFS** integrated (most reference launch films sit at −14; some at −7 to −10), true peak ≤ −1 dBFS with a limiter. Our first −18 LUFS delivery felt far too quiet next to them. For a deliberately calm piece, −16 is the floor. Copy the video stream untouched; AAC 256k.
 - Measure with `scripts/loudness.sh`. State honestly whether anyone actually listened, since measurements can't judge taste.

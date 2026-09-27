@@ -7,9 +7,9 @@ A cut ships only when all of these hold. Critics check them; scripts measure the
 | Check | Target | How |
 |---|---|---|
 | Frozen time | Total stretches with frame-diff below threshold ≤ ~1s per 30s; no single hold > 0.6s except the final CTA | `scripts/frozen-time.sh` |
-| Loudness | −16 to −18 LUFS integrated for web/social; true peak ≤ −1 dBFS | `scripts/loudness.sh` |
+| Loudness | About −14 LUFS integrated (launch-film norm; −16 minimum for calm pieces); true peak ≤ −1 dBFS | `scripts/loudness.sh` |
 | Dynamics | Energetic scores: loudness range ≥ ~3 LU (a flat wall of sound reads as stock). Calm/chill scores: ~1.5–3 LU is fine, as long as the track doesn't die before the ending | `scripts/loudness.sh` |
-| Effects vs music | Each effect's momentary loudness at or below the music's typical level at that moment | Compare momentary (M) values around events |
+| Effects vs music | Each effect peaks ~+4 to +9 dB above the music bed at its moment (logo hit loudest); never inaudible | Compare 50ms peak RMS at the event vs the music-only mix |
 | Text contrast | WCAG AA on all settled text (transitional fades excepted) | Framework check / manual sampling |
 | Brand colour | Sampled backgrounds match brand tokens (tone mapping in 3D shifts colours, so measure) | Crop + average pixel |
 | Determinism | Same frame rendered twice from different seek orders gives identical pixels | Seek-consistency test |
