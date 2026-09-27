@@ -13,24 +13,18 @@ Audio made otherwise strong visuals feel amateur more than anything else. These 
 
 ## Sound effects
 
-**What the launch films actually do** (audio analysis of 14 motion-first reference films: loudness, transient detection against the music bed, cut alignment, spectrograms of studied transitions):
-- The music carries most of the sound design: punchy rhythmic beds, with cuts landing on beats.
-- The music **drops out for a moment right before a big moment**, then the moment hits.
-- **Pitched sweeps ("zips")** on transitions: clean rising/falling tones (AgentArcade, Bolt), not just noisy whooshes.
-- A **deep sub hit exactly on a hard cut** (Work Louder).
-- **Crisp product/UI sounds in the 2–10 kHz band**, where the music leaves space (Work Louder's key clicks), clearly audible.
-- Effects peak roughly **+5 to +10 dB above the music bed** at their moment.
+What the reference launch films do (audio analysis of 14 motion-first films): the music carries the sound design, with punchy rhythmic beds and cuts on beats. Effects are whooshes, pitched sweeps, sub hits on hard cuts, and crisp UI/product clicks. That density suits punchy tech tracks. **Copying it onto a calm, chill score was rejected** as "too loud… not clean… annoying throughout".
 
-**Rules that follow:**
-- A whoosh on every scene change; a sub hit on the 1–2 biggest landings (headline slam, logo), with a 0.2–0.3s music dip just before the logo hit.
-- Rising sweeps on reveals (layers lifting, cards rising); falling sweeps on objects landing or handing off.
-- Ticks for labels, highlights and focus rings; pops for pins and badges; crisp clicks only on real cursor clicks; one chime on confirmation.
-- **Level:** each effect peaks about +4 to +9 dB above the music at its moment; the logo hit is the loudest. Effects set "at or below the music" are inaudible. A client said "there are basically no sound effects, I can't hear anything".
-- **Source:** a clean library (e.g. the HyperFrames bundled SFX) plus clean synthesized sweeps and ticks (`scripts/make-sweeps.sh`). AI-generated effects were rejected as "not professional… jarring".
-- Keep library sounds bright (light high-pass only). Heavy low-pass makes them dull and easy to lose under the music.
+Rules from three rounds of client feedback on a chill home-services film:
+1. **Few effects, only on the biggest moments.** About 12 in 30s worked better than 37: a soft whoosh on the 4–5 major scene changes, a pop per important reveal (e.g. photo pins), clicks only on real cursor clicks, one chime on confirmation, and one light low hit under the logo. No effects on every wipe, label, highlight or tick.
+2. **Clean library sounds only.** AI-generated effects were rejected ("not professional… jarring"), and so were synthesized sine sweeps and ticks ("annoying"). Use a standard library (e.g. HyperFrames' bundled SFX), with a gentle high-pass (~120–250 Hz), a low-pass (~9–10 kHz) and click-free fades.
+3. **Set levels in each effect's own frequency band, not by overall loudness.** Full-band loudness barely moves when an effect plays, because music dominates the total energy. Meanwhile clicks, ticks and chimes can jump 12–17 dB in the 2–8 kHz range where the ear is most sensitive, which is what made them annoying. Target about **+4 dB lift within the effect's own band** over the music-only mix. Solve gains offline: render a music-only version, add each effect at candidate gains, and band-pass around the effect's spectral centre.
+4. Effects **at or below the music were inaudible** ("I can't even hear anything"). The window between inaudible and annoying is narrow, so measure and don't guess.
+5. **Always deliver a music-only version** as a fallback alongside the mix.
+6. If the music resolves on the logo, don't add a separate musical sting (key clashes). Don't cut the music out before the logo on calm pieces; it read as a glitch risk.
 
 ## Mix & master
 
 - Mix and render as part of the composition (per-track volume, automation for dips under dense reading moments).
-- **Master to about −14 LUFS** integrated (most reference launch films sit at −14; some at −7 to −10), true peak ≤ −1 dBFS with a limiter. Our first −18 LUFS delivery felt far too quiet next to them. For a deliberately calm piece, −16 is the floor. Copy the video stream untouched; AAC 256k.
+- **Loudness:** reference launch films master around −14 LUFS (some at −7 to −10). For a calm/chill piece, −16 LUFS worked: −18 felt too quiet, and −14 with dense effects felt too loud. True peak ≤ −1 dBFS with a limiter. Copy the video stream untouched; AAC 256k.
 - Measure with `scripts/loudness.sh`. State honestly whether anyone actually listened, since measurements can't judge taste.
