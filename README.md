@@ -14,16 +14,18 @@ It packages what was learned from studying 28 professional SaaS launch films and
 
 ## Install (Claude Code)
 
+The skill lives in `.claude/skills/business-motion-film/`, so it loads automatically whenever Claude Code runs inside this repo. To use it elsewhere:
+
 ```sh
 git clone https://github.com/echris6/motion-video-kit.git
-cp -r motion-video-kit/business-motion-film ~/.claude/skills/        # all projects
+cp -r motion-video-kit/.claude/skills/business-motion-film ~/.claude/skills/        # all projects
 # or, per project:
-cp -r motion-video-kit/business-motion-film <your-project>/.claude/skills/
+cp -r motion-video-kit/.claude/skills/business-motion-film <your-project>/.claude/skills/
 ```
 
 Then ask for a business commercial, sample reel or explainer, or for a review of one, and the skill loads. It works best with [HyperFrames](https://hyperframes.heygen.com) for rendering, but the principles, prompts and checks are renderer-agnostic.
 
-**Other LLMs:** paste `business-motion-film/SKILL.md` plus the reference files you need into the context.
+**Other LLMs:** paste `.claude/skills/business-motion-film/SKILL.md` plus the reference files you need into the context.
 
 ## Requirements for the scripts
 
@@ -32,7 +34,7 @@ Then ask for a business commercial, sample reel or explainer, or for a review of
 ## Layout
 
 ```
-business-motion-film/
+.claude/skills/business-motion-film/
   SKILL.md                      workflow + non-negotiables
   references/
     gauntlet.md                 the review loop, with real findings
